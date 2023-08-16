@@ -1,15 +1,10 @@
 import os
 
 
-def clear():  # Clear the Windows CMD line
-    os.system("cls")
-
-
-def title_box(text, delimiter='|'):
+def title_box(text, delimiter):
     """Accepts a string, and center aligns it in an ascii box.
-    Default Delimiter is '|'"""
+    text = str()"""
     try:
-        clear()
         max_len = 0
         for line in text.split(delimiter):
             if max_len <= len(line):
@@ -23,7 +18,11 @@ def title_box(text, delimiter='|'):
                 print('| ' + (' ' * diff) + line + (' ' * diff) + ' |')
         print('+-' + ('-' * max_len) + '-+')
     except AttributeError:
-        print("Invalid ascii.center_box input: 'text' needs to be a string!")
+        print("Invalid ascii.center_box input: 'text' and 'delimiter' need to be strings!")
+
+
+def clear():  # Clear the Windows CMD line
+    os.system("cls")
 
 
 if __name__ == '__main__':  # This code is not run on import
